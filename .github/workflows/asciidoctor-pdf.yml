@@ -1,0 +1,35 @@
+name: asciidoc-pdf
+
+on: 
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+# docker container asciidoctor einbinden
+    container:
+      image: docker://asciidoctor/docker-asciidoctor:latest
+    steps:  
+# auschecken/ewinbinden des aktuellen Repositories -> main
+    - name: Checkout current repo
+      uses: actions/checkout@v3
+# PDF generieren -> https://docs.asciidoctor.org/pdf-converter/latest/
+    - name: create pdf
+#      run: asciidoctor-pdf -o Handlungsempfehlungen/Darstellungsdienste/PDF/Handlungsempfehlungen_Darstellungsdienste.pdf -a pdf-fontsdir=Handlungsempfehlungen/Darstellungsdienste/fonts/ -a pdf-style=Handlungsempfehlungen/Darstellungsdienste/themes/styles.yml Handlungsempfehlungen/Darstellungsdienste/README.adoc
+      run: asciidoctor-pdf -o architekturkonzept/technische-festlegungen/vorgaben-darstellungsdienste.pdf -a pdf-fontsdir=resources/fonts/ -a pdf-theme=resources/themes/styles.yml architekturkonzept/technische-festlegungen/vorgaben-darstellungsdienste.adoc
+# Artefakt erstellen
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+          name: vorgaben-darstellungsdienste.pdf
+          path: /__w/gdi-de-dokumente/gdi-de-dokumente/architekturkonzept/technische-festlegungen/
+# Erstelle ein Release und lade verknüpfe das Artefakt
+    - name: Create release and upload artifact
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "/__w/gdi-de-dokumente/gdi-de-dokumente/architekturkonzept/technische-festlegungen/vorgaben-darstellungsdienste.pdf"
+        tag: "${{ github.event.release.tag_name }}"
+        bodyFile: "resources/changelog/changelog.md"
+        token: ${{ secrets.GITHUB_TOKEN }}
