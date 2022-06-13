@@ -1,6 +1,6 @@
 name: asciidoc-pdf-manual
 
-on: workflow_dispatch
+on: push
 
 jobs:
   build:
