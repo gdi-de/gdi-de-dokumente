@@ -1,4 +1,4 @@
-name: asciidoc-pdf
+name: asciidoc-pdf-manual
 
 on: 
   workflow_dispatch
