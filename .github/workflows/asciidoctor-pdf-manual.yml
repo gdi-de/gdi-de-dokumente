@@ -12,9 +12,11 @@ jobs:
 # auschecken/ewinbinden des aktuellen Repositories -> main
     - name: Checkout current repo
       uses: actions/checkout@v3
+      with:
+        ref: dev
 # PDF generieren -> https://docs.asciidoctor.org/pdf-converter/latest/
     - name: create pdf
-#      run: asciidoctor-pdf -o Handlungsempfehlungen/Darstellungsdienste/PDF/Handlungsempfehlungen_Darstellungsdienste.pdf -a pdf-fontsdir=Handlungsempfehlungen/Darstellungsdienste/fonts/ -a pdf-style=Handlungsempfehlungen/Darstellungsdienste/themes/styles.yml Handlungsempfehlungen/Darstellungsdienste/README.adoc
+      # run: asciidoctor-pdf -o Handlungsempfehlungen/Darstellungsdienste/PDF/Handlungsempfehlungen_Darstellungsdienste.pdf -a pdf-fontsdir=Handlungsempfehlungen/Darstellungsdienste/fonts/ -a pdf-style=Handlungsempfehlungen/Darstellungsdienste/themes/styles.yml Handlungsempfehlungen/Darstellungsdienste/README.adoc
       run: asciidoctor-pdf -o architekturkonzept/technische-festlegungen/vorgaben-darstellungsdienste.pdf -a pdf-fontsdir=resources/fonts/ -a pdf-theme=resources/themes/styles.yml architekturkonzept/technische-festlegungen/vorgaben-darstellungsdienste.adoc
     # Artefakt erstellen
     - name: Archive code coverage results
