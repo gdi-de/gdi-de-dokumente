@@ -1,0 +1,58 @@
+ifdef::env-github[]
+:important-caption: 📕
+:tip-caption: 📒
+:note-caption: 📘
+endif::[]
+
+ifndef::env-github[]
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+endif::[]
+
+:icons: font
+
+:toc: macro
+:toc-title:
+:toclevels: 4
+:sectnumlevels: 4
+
+image:./resources/media/logo-gdi-de.png[image,width=178,height=106]
+*Geodateninfrastruktur Deutschland*
+
+[discrete]
+= Titel des Dokumentes
+
+[width="100%",cols="24%,76%",]
+|===
+|*Bezeichnung* | Titel des Dokumentes
+|*Autor* | Ersteller
+|*Erstellt am* | Datum
+|*Bearbeitungszustand* | in Bearbeitung | vorgeegt | etc.
+|*Version* | X.X.X
+|*Dokumentenablage* |
+|===
+
+
+== Inhaltsverzeichnis
+toc::[]
+
+<<<
+
+:sectnums:
+
+== Überschrift 2
+
+=== Überschrift 3
+
+==== Überschrift 4
+
+[IMPORTANT]
+====
+Anforderung
+====
+
+[TIP]
+====
+Empfehlung
+====
