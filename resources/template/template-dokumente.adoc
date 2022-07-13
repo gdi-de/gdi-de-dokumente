@@ -17,7 +17,7 @@ endif::[]
 :toclevels: 4
 :sectnumlevels: 4
 
-image:./resources/media/logo-gdi-de.png[image,width=178,height=106]
+image:./../resources/media/logo-gdi-de.png[image,width=178,height=106]
 *Geodateninfrastruktur Deutschland*
 
 [discrete]
