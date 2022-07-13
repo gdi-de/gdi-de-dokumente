@@ -41,11 +41,11 @@ toc::[]
 
 :sectnums:
 
-== Überschrift 2
+== Überschrift 1
 
-=== Überschrift 3
+=== Überschrift 2
 
-==== Überschrift 4
+==== Überschrift 3
 
 [IMPORTANT]
 ====
